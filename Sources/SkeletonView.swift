@@ -3,6 +3,12 @@
 import UIKit
 
 public extension UIView {
+    
+    /// Shows the gradient skeleton without animation using the view that calls this method as root view.
+    @objc func showObjcGradientSkeleton() {
+        showAnimatedGradientSkeleton()
+    }
+    
     /// Shows the skeleton without animation using the view that calls this method as root view.
     ///
     /// - Parameters:
@@ -85,7 +91,7 @@ public extension UIView {
         }
     }
 
-    func stopSkeletonAnimation() {
+    @objc func stopSkeletonAnimation() {
         subviewsSkeletonables.recursiveSearch(leafBlock: stopSkeletonLayerAnimationBlock) { subview in
             subview.stopSkeletonAnimation()
         }
